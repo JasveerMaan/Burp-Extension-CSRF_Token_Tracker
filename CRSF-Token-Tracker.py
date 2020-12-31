@@ -11,7 +11,8 @@ class BurpExtender(IBurpExtender, IHttpListener):
 		self.helpers = callbacks.getHelpers()
 		callbacks.registerHttpListener(self)
 		callbacks.setExtensionName("CSRF Token Updater_v0.3")
-
+		
+		#Removes file from the path if exist
 		if os.path.exists('Token.txt'):
 			os.remove("Token.txt")
 			os.remove("Cookie.txt")

@@ -16,6 +16,6 @@ Sends received "token" and "CSRFToken" to the server. Note: Same token can't be 
 So the extensions reads the server responds and finds value of "token" and "CSRFToken". Then using Burp Repeater, the parameter "token" and "CSRFToken" will be updated. 
 
 
-#To do:
+# To do:
 1. Implement multithreading
 2. Update the extension to avoid writing to files and save data in a dictionary or something.

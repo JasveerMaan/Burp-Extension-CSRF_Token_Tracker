@@ -82,7 +82,7 @@ class BurpExtender(IBurpExtender, IHttpListener):
 				StoringToken.close()
 
 				ResponseHeader = ''.join(response_headers)
-				ResponseCookie = re.findall("requestId=[0-9 A-Z a-z]{10,100};", ResponseHeader)
+				ResponseCookie = re.findall("CSRFToken=[0-9 A-Z a-z]{10,100};", ResponseHeader) 
 				SplitResponseCookie = ResponseCookie[0].split("=")
 				FinalResponseCookie = SplitResponseCookie[1]
 	

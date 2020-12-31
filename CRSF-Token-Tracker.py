@@ -47,7 +47,7 @@ class BurpExtender(IBurpExtender, IHttpListener):
 						break
 
 				for i in BodyParameters:
-					if "requestId" in i.getName():
+					if "CSRFToken" in i.getName():
 						newcookie = self.helpers.buildParameter(i.getName(), ReadingToken, IParameter.PARAM_COOKIE)
 						break
 

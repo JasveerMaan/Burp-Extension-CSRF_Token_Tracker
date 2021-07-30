@@ -1,20 +1,17 @@
 # Burp-Extension-CSRF_Token_Tracker
 
-During an assessment, I came accross to an application which changes CSRF "Token" along with "Cookie" per request. In order to use features such as Burp Suite Repeater, Intruder and etc, I created this extension to allow me to test efficiently. 
+During an assessment, I came accross to an application which uses different CSRF "Token" along with "Cookie" on every HTTP request. In order to use features such as Burp Suite Repeater, Intruder and etc, I created this extension to allow me to test efficiently. 
 
 # Scenario
 Server:
 
-Responds with new "token" and "CSRFToken" after every request.
+The application responds with new Cookie and "CSRFToken" after every successful request sent to the server.
 
 Client:
 
-Sends received "token" and "CSRFToken" to the server. Note: Same token can't be used.
+Sends HTTP request with the retrieve (from HTTP Response) Cookie and "CSRFToken" to the server.
 
-
-
-So the extensions reads the server responds and finds value of "token" and "CSRFToken". Then using Burp Repeater, the parameter "token" and "CSRFToken" will be updated. 
-
+In short, the extensions reads the server responds to retrieve value of Cookie and "CSRFToken". This allows me to use Burp Suite Repeater/Scanner/Intruder/etc feature without manually updating the Cookie and "CSRFToken".
 
 # To do:
 1. Implement multithreading
